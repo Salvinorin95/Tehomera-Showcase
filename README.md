@@ -13,7 +13,7 @@ Rust · wgpu/Metal · egui · Rapier physics · glTF + Blender pipeline · Rhai 
 
 ---
 
-Most engines bolt an AI chat box onto an editor. In Tehomera the agent has a **body in the scene**. You point at a spot on the beach and ask, and the agent glides there, works with a visible beam, and reports every step the engine confirmed. You can stop it mid-task or undo the whole job in one click. Claude Code, Codex and Grok can each drive an agent, inside hard limits you control.
+Most engines bolt an AI chat box onto an editor. In Tehomera the agent has a **body in the scene**. You point at a spot on the beach and ask, and the agent glides there, works with a visible beam, and reports every step the engine confirmed. You can stop it mid-task or undo the whole job in one click. Claude Code, Codex and Grok can each drive an agent today, inside hard limits you control. The provider layer is open, so more AI agents and models can be plugged in over time.
 
 Tehomera Native (v0.5) is a standalone macOS app with about **56,000 lines of Rust** and a test suite for nearly every subsystem. It runs offline, and no browser, server or AI is needed to build worlds by hand.
 
@@ -36,7 +36,7 @@ Tehomera Native (v0.5) is a standalone macOS app with about **56,000 lines of Ru
 | 🧍 **Embodied agents** | Every agent has an avatar, a name tag and a live status on the map. It travels to your target, shows a work beam, and claims the objects it is editing so you can see who is touching what. |
 | 🧾 **Task cards, Stop and Undo group** | Each request becomes a card of engine-confirmed steps (✔/✖, revisions). **Stop** halts immediately and lists what was already applied. **Undo group #N** reverts the entire task as one unit. |
 | 🎨 **Agents that build their own tools** | An agent can reshape its own avatar and build you custom in-world control panels (for example *Sea controls*: fish count, waves, predator, "Calm sea"). Those controls are undoable like any other edit. |
-| 🤝 **Your choice of model, with consent** | Claude Code, Codex and Grok adapters, plus a **deterministic offline planner** that needs no network. Each provider needs explicit, per-provider consent, and every task runs under hard limits (**12 turns, 60 commands, 180 s**). |
+| 🤝 **Your choice of model, with consent** | Claude Code, Codex and Grok adapters today (the provider layer is designed so more agents can be added), plus a **deterministic offline planner** that needs no network. Each provider needs explicit, per-provider consent, and every task runs under hard limits (**12 turns, 60 commands, 180 s**). |
 | 🛟 **A project system that can't eat your work** | Atomic saves, automatic backups, project locks. Scripts **never run when a project is opened**, and Blender files open with auto-exec disabled. |
 | 🌊 **Live editing, even during Play** | The simulation keeps running while you edit. Press Tab to play, then B to keep building in-game. Changes are saved like any edit. |
 | 🐟 **Living ecology (MAARAG)** | Habitats, schooling fish and the PortMatt catfish follow juvenile and adult behaviours, and the engine records the reason behind each decision. |
@@ -49,7 +49,7 @@ A full coastal slice carried over from the PortMatt game: sand beach, a marina w
 ![Editor workspace on the PortMatt coast map: scene hierarchy with the PortMatt characters, the viewport, and the agent panel](docs/media/editor-portmatt-coast.jpg)
 
 ### Agents on the map
-Claude, Grok and Codex joined the same world. Each has its own avatar and status, and the provider panel shows each one's consent and connection state.
+Claude, Grok and Codex joined the same world. Each has its own avatar and status, and the provider panel shows each one's consent and connection state. These three are the first; more agents and providers can join the same world as adapters are added.
 
 ![Three agent avatars (Grok, Claude, Codex) standing on the beach, each marked Ready](docs/media/agents-team.jpg)
 
